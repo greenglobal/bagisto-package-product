@@ -1,1 +1,1 @@
-# bagisto-package-product
+# bagisto-product
