@@ -18,8 +18,7 @@ class AdminServiceProvider extends ServiceProvider
     */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
-        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'gg');
+
     }
 
     /**
@@ -29,22 +28,16 @@ class AdminServiceProvider extends ServiceProvider
     */
     public function register()
     {
-        $this->registerConfig();
-        $this->registerFacades();
+
     }
 
     protected function registerFacades()
     {
-        $this->app->bind(
-            \Webkul\Admin\DataGrids\ProductDataGrid::class,
-            \GG\Admin\DataGrids\ProductDataGrid::class
-        );
+
     }
 
     protected function registerConfig()
     {
-        $this->mergeConfigFrom(
-            dirname(__DIR__) . '/Config/system.php', 'core'
-        );
+
     }
 }
