@@ -1,6 +1,6 @@
 # bagisto-products
-## Feature of packages
-- Admin able custom show all list products or show parent products only
+## Features
+- Admin able custom list all products or show parent products only
 - Admin able custom configuration product types suiable with your project
 
 ## Using bagisto products
@@ -15,7 +15,7 @@
 - Now, to register the service provider, go to the `app.php` file inside the config folder & add your service provider inside the `providers` array.
 - `GGPHP\Admin\Providers\AdminServiceProvider::class`
 ### Step-4
-- we need to add our package to the `composer.json` file of project root for auto loading in `psr-4`.
+- we need to add our package to the `composecustomr.json` file of project root for auto loading in `psr-4`.
 - ` "GGPHP\\Admin\\": "packages/GGPHP/Admin/src"`
 ### Step-5
 - Run `composer dump-autoload`
