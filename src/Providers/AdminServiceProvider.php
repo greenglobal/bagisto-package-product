@@ -1,5 +1,5 @@
 <?php
-namespace GG\Admin\Providers;
+namespace GGPHP\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -19,7 +19,7 @@ class AdminServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
-        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'gg');
+        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'gg-php');
     }
 
     /**
@@ -37,7 +37,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             \Webkul\Admin\DataGrids\ProductDataGrid::class,
-            \GG\Admin\DataGrids\ProductDataGrid::class
+            \GGPHP\Admin\DataGrids\ProductDataGrid::class
         );
     }
 
