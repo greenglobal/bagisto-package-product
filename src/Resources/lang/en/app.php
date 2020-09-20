@@ -25,7 +25,8 @@
                 ],
                 'downloadable'             => [
                     'title' => 'Downloadable'
-                ]
+                ],
+                'random-sku'               => 'Random SKU'
             ]
         ]
     ];

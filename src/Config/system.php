@@ -44,6 +44,11 @@
                             'value' => 'grouped'
                         ]
                     ]
+                ],
+                [
+                    'name'    => 'random-sku',
+                    'title'   => 'gg-php::app.admin.system.random-sku',
+                    'type'    => 'boolean',
                 ]
             ],
         ]

@@ -1,4 +1,5 @@
 <?php
+
 namespace GGPHP\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -20,6 +21,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'gg-php');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'gg-php');
         $this->composeView();
     }
 
@@ -51,7 +53,7 @@ class AdminServiceProvider extends ServiceProvider
 
     protected function composeView()
     {
-        view()->composer(['admin::catalog.products.create'], function ($view) {
+        view()->composer(['gg-php::admin.catalog.products.create'], function ($view) {
             $productTypes = [];
             $defaultConfig = config('product_types');
             $customConfig = explode(',', core()->getConfigData('catalog.products.general.list-product-type'));
@@ -74,6 +76,13 @@ class AdminServiceProvider extends ServiceProvider
             $types = core()->sortItems($productTypes);
 
             $view->with('productTypes', $types);
+        });
+
+        view()->composer(['gg-php::admin.catalog.products.create'], function ($view) {
+            $sku = app('GGPHP\Admin\Helpers\Product')->randSku();
+            $isRandSku = core()->getConfigData('catalog.products.general.random-sku');
+
+            $view->with(['isRandSku' => $isRandSku, 'sku' => $sku]);
         });
     }
 }
