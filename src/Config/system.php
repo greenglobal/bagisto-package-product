@@ -2,45 +2,45 @@
     return [
         [
             'key'    => 'catalog.products.general',
-            'name'   => 'gg-php::app.admin.system.general',
+            'name'   => 'ggphp::product.admin.system.general',
             'sort'   => 1,
             'fields' => [
                 [
                     'name'    => 'show-parent-product-only',
-                    'title'   => 'gg-php::app.admin.system.show-parent-product-only',
+                    'title'   => 'ggphp::product.admin.system.show-parent-product-only',
                     'type'    => 'boolean',
                 ],
                 [
                     'name'    => 'list-product-type',
-                    'title'   => 'gg-php::app.admin.system.product-type',
+                    'title'   => 'ggphp::app.admin.system.product-type',
                     'type'    => 'multiselect',
                     'options' => [
                         [
-                            'title' => 'gg-php::app.admin.system.booking.title',
+                            'title' => 'ggphp::product.admin.system.booking.title',
                             'value' => 'booking'
                         ],
                         [
-                            'title' => 'gg-php::app.admin.system.simple.title',
+                            'title' => 'ggphp::product.admin.system.simple.title',
                             'value' => 'simple'
                         ],
                         [
-                            'title' => 'gg-php::app.admin.system.configurable.title',
+                            'title' => 'ggphp::product.admin.system.configurable.title',
                             'value' => 'configurable'
                         ],
                         [
-                            'title' => 'gg-php::app.admin.system.downloadable.title',
+                            'title' => 'ggphp::product.admin.system.downloadable.title',
                             'value' => 'downloadable'
                         ],
                         [
-                            'title' => 'gg-php::app.admin.system.bundle.title',
+                            'title' => 'ggphp::product.admin.system.bundle.title',
                             'value' => 'bundle'
                         ],
                         [
-                            'title' => 'gg-php::app.admin.system.virtual.title',
+                            'title' => 'ggphp::product.admin.system.virtual.title',
                             'value' => 'virtual',
                         ],
                         [
-                            'title' => 'gg-php::app.admin.system.grouped.title',
+                            'title' => 'ggphp::product.admin.system.grouped.title',
                             'value' => 'grouped'
                         ]
                     ]

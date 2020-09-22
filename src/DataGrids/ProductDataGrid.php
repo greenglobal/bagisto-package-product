@@ -1,6 +1,6 @@
 <?php
 
-namespace GGPHP\Admin\DataGrids;
+namespace GGPHP\Product\DataGrids;
 
 use Webkul\Admin\DataGrids\ProductDataGrid as WebkulProductDataGrid;
 
