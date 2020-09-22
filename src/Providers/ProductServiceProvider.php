@@ -1,30 +1,22 @@
 <?php
-namespace GGPHP\Admin\Providers;
+namespace GGPHP\Product\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-/**
-* HelloWorld service provider
-*
-* @author    Jane Doe <janedoe@gmail.com>
-* @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
-*/
-class AdminServiceProvider extends ServiceProvider
+class ProductServiceProvider extends ServiceProvider
 {
     /**
     * Bootstrap services.
-    *
     * @return void
     */
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
-        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'gg-php');
+        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'ggphp');
     }
 
     /**
     * Register services.
-    *
     * @return void
     */
     public function register()
@@ -37,7 +29,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             \Webkul\Admin\DataGrids\ProductDataGrid::class,
-            \GGPHP\Admin\DataGrids\ProductDataGrid::class
+            \GGPHP\Product\DataGrids\ProductDataGrid::class
         );
     }
 
