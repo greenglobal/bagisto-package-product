@@ -8,14 +8,14 @@
 ### Step-1
 - Download(clone) source code.
 ### Step-2
-- Inside fordel `packages` create new fordel `GGPHP`, inside fordel `GGPHP` create fordel `Admin`
-- `Copy` fordel `src`, then `paste` in fordel `Admin`.
-- example: `packages/GGPHP/Admin/src`
+- Inside fordel `packages` create new fordel `GGPHP`, inside fordel `GGPHP` create fordel `Product`
+- `Copy` fordel `src`, then `paste` in fordel `Product`.
+- example: `packages/GGPHP/Product/src`
 ### Step-3
 - Now, to register the service provider, go to the `app.php` file inside the config folder & add your service provider inside the `providers` array.
-- `GGPHP\Admin\Providers\AdminServiceProvider::class`
+- `GGPHP\Product\Providers\ProductServiceProvider::class`
 ### Step-4
 - we need to add our package to the `composecustomr.json` file of project root for auto loading in `psr-4`.
-- ` "GGPHP\\Admin\\": "packages/GGPHP/Admin/src"`
+- ` "GGPHP\\Product\\": "packages/GGPHP/Product/src"`
 ### Step-5
 - Run `composer dump-autoload`
