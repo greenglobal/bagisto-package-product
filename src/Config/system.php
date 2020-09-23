@@ -12,7 +12,7 @@
                 ],
                 [
                     'name'    => 'list-product-type',
-                    'title'   => 'ggphp::app.admin.system.product-type',
+                    'title'   => 'ggphp::product.admin.system.product-type',
                     'type'    => 'multiselect',
                     'options' => [
                         [

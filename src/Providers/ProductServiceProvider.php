@@ -3,17 +3,10 @@ namespace GGPHP\Product\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-/**
-* HelloWorld service provider
-*
-* @author    Jane Doe <janedoe@gmail.com>
-* @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
-*/
 class ProductServiceProvider extends ServiceProvider
 {
     /**
     * Bootstrap services.
-    *
     * @return void
     */
     public function boot()
@@ -25,7 +18,6 @@ class ProductServiceProvider extends ServiceProvider
 
     /**
     * Register services.
-    *
     * @return void
     */
     public function register()
