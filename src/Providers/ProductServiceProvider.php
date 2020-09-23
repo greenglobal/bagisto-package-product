@@ -1,33 +1,24 @@
 <?php
-
-namespace GGPHP\Admin\Providers;
+namespace GGPHP\Product\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-/**
-* HelloWorld service provider
-*
-* @author    Jane Doe <janedoe@gmail.com>
-* @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
-*/
-class AdminServiceProvider extends ServiceProvider
+class ProductServiceProvider extends ServiceProvider
 {
     /**
     * Bootstrap services.
-    *
     * @return void
     */
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
-        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'gg-php');
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'gg-php');
+        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'ggphp');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'ggphp-product');
         $this->composeView();
     }
 
     /**
     * Register services.
-    *
     * @return void
     */
     public function register()
@@ -40,7 +31,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             \Webkul\Admin\DataGrids\ProductDataGrid::class,
-            \GGPHP\Admin\DataGrids\ProductDataGrid::class
+            \GGPHP\Product\DataGrids\ProductDataGrid::class
         );
     }
 
@@ -53,7 +44,7 @@ class AdminServiceProvider extends ServiceProvider
 
     protected function composeView()
     {
-        view()->composer(['gg-php::admin.catalog.products.create'], function ($view) {
+        view()->composer(['ggphp-product::admin.catalog.products.create'], function ($view) {
             $productTypes = [];
             $defaultConfig = config('product_types');
             $customConfig = explode(',', core()->getConfigData('catalog.products.general.list-product-type'));
@@ -78,8 +69,8 @@ class AdminServiceProvider extends ServiceProvider
             $view->with('productTypes', $types);
         });
 
-        view()->composer(['gg-php::admin.catalog.products.create'], function ($view) {
-            $sku = app('GGPHP\Admin\Helpers\Product')->randSku();
+        view()->composer(['ggphp-product::admin.catalog.products.create'], function ($view) {
+            $sku = app('GGPHP\Product\Helpers\Product')->randSku();
             $isRandSku = core()->getConfigData('catalog.products.general.random-sku');
 
             $view->with(['isRandSku' => $isRandSku, 'sku' => $sku]);

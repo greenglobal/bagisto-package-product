@@ -75,7 +75,7 @@
                                 <option value=""></option>
                                 @foreach ($families as $family)
                                     <option value="{{ $family->id }}" {{ ($familyId == $family->id || old('attribute_family_id') == $family->id) ? 'selected' : '' }}>{{ $family->name }}</option>
-                                    @endforeach
+                                @endforeach
                             </select>
 
                             @if ($familyId)
@@ -86,12 +86,15 @@
 
                         <div class="control-group" :class="[errors.has('sku') ? 'has-error' : '']">
                             <label for="sku" class="required">{{ __('admin::app.catalog.products.sku') }}</label>
-                            <input 
-                                type="text" 
-                                v-validate="{ required: true, regex: /^[a-z0-9]+(?:-[a-z0-9]+)*$/ }" 
-                                class="control" 
-                                id="sku" name="sku" 
-                                value="{{ $isRandSku ? $sku : (request()->input('sku') ?: old('sku')) }}" 
+                            <input
+                                type="text"
+                                v-validate="{ required: true, regex: /^[a-z0-9]+(?:-[a-z0-9]+)*$/ }"
+                                class="control"
+                                id="sku" name="sku"
+                                {{-- check and get value sku --}}
+                                value="{{ $isRandSku
+                                    ? (request()->input('type') === "configurable" ? request()->input('sku') : $sku)
+                                    : (request()->input('sku') ?: old('sku')) }}"
                                 data-vv-as="&quot;{{ __('admin::app.catalog.products.sku') }}&quot;"/>
                             <span class="control-error" v-if="errors.has('sku')">@{{ errors.first('sku') }}</span>
                         </div>

@@ -8,7 +8,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::prefix('catalog')->group(function () {
                 // Catalog Product Routes
                 Route::get('/products/create', 'Webkul\Product\Http\Controllers\ProductController@create')->defaults('_config', [
-                    'view' => 'gg-php::admin.catalog.products.create',
+                    'view' => 'ggphp-product::admin.catalog.products.create',
                 ])->name('admin.catalog.products.create');
             });
         });
