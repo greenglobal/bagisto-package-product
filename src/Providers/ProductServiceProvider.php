@@ -13,6 +13,7 @@ class ProductServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/admin-routes.php');
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'ggphp');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'ggphp-product');
         $this->composeView();
     }
 
@@ -31,6 +32,10 @@ class ProductServiceProvider extends ServiceProvider
         $this->app->bind(
             \Webkul\Admin\DataGrids\ProductDataGrid::class,
             \GGPHP\Product\DataGrids\ProductDataGrid::class
+        );
+        $this->app->bind(
+            \Webkul\Product\Type\Configurable::class,
+            \GGPHP\Product\Type\Configurable::class
         );
     }
 
