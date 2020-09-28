@@ -2,6 +2,7 @@
 ## Features
 - Admin able custom products listing or show parent products only
 - Admin able custom config product types suiable with your project
+- Auto fill name, url key for variants
 
 ## Using bagisto products
 
