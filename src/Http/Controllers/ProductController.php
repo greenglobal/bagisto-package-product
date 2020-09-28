@@ -11,8 +11,9 @@ class ProductController extends WebkulProductController
     {
         $data = request()->all();
 
+        // Set value channel is default
         if (core()->getConfigData('catalog.products.general.channel-default')) {
-            array_merge($data, ['channels' => 'default']);
+            array_merge($data, ['channel' => 'default']);
         }
 
         $multiselectAttributeCodes = array();

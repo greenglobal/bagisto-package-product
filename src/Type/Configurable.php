@@ -136,7 +136,7 @@ class Configurable extends WebkulConfigurable {
 
                         $variantData['channel'] = $data['channel'];
                         $variantData['locale'] = $data['locale'];
-                        // add parent name for variants
+                        // Add parent name for variants
                         $variantData['parent_name'] = $data['name'];
 
                         $this->updateVariant($variantData, $variantId);
@@ -158,7 +158,7 @@ class Configurable extends WebkulConfigurable {
         $productVariant = ProductFlat::where('product_id', $id)->first();
 
         if ($productVariant && isset($data['parent_name'])) {
-            // covert string to format url key, then update variant.
+            // Covert string to format url key, then update variant.
             $urlKey = str_replace(' ', '-', trim(strtolower($data['parent_name'] . '-' . $productVariant->name), ' '));
             $productVariant->update(['url_key' => $urlKey]);
         }
