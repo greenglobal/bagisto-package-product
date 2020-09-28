@@ -6,8 +6,10 @@
 
 @section('content')
     <div class="content">
-        <?php $locale = request()->get('locale') ?: app()->getLocale(); ?>
-        <?php $channel = request()->get('channel') ?: core()->getDefaultChannelCode(); ?>
+        @php
+            $locale = request()->get('locale') ?: app()->getLocale();
+            $channel = request()->get('channel') ?: core()->getDefaultChannelCode();
+        @endphp
 
         {!! view_render_event('bagisto.admin.catalog.product.edit.before', ['product' => $product]) !!}
 
@@ -26,12 +28,10 @@
                     <div class="control-group">
                         <select class="control" id="channel-switcher" name="channel">
                             @foreach (core()->getAllChannels() as $channelModel)
-
                                 <option
                                     value="{{ $channelModel->code }}" {{ ($channelModel->code) == $channel ? 'selected' : '' }}>
                                     {{ $channelModel->name }}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>
@@ -39,12 +39,10 @@
                     <div class="control-group">
                         <select class="control" id="locale-switcher" name="locale">
                             @foreach (core()->getAllLocales() as $localeModel)
-
                                 <option
                                     value="{{ $localeModel->code }}" {{ ($localeModel->code) == $locale ? 'selected' : '' }}>
                                     {{ $localeModel->name }}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>
@@ -63,7 +61,7 @@
                 <input name="_method" type="hidden" value="PUT">
 
                 @foreach ($product->attribute_family->attribute_groups as $index => $attributeGroup)
-                    <?php $customAttributes = $product->getEditableAttributes($attributeGroup); ?>
+                    @php $customAttributes = $product->getEditableAttributes($attributeGroup); @endphp
 
                     @if (count($customAttributes))
 
@@ -76,7 +74,7 @@
 
                                 @foreach ($customAttributes as $attribute)
 
-                                    <?php
+                                    @php
                                         if ($attribute->code == 'guest_checkout' && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
                                             continue;
                                         }
@@ -108,7 +106,7 @@
                                         $typeView = $attribute->type != 'text'
                                             ? 'admin::catalog.products.field-types.' . $attribute->type
                                             : 'ggphp-product::admin.catalog.products.field-types.' . $attribute->type;
-                                    ?>
+                                    @endphp
 
                                     @if (view()->exists($typeView))
 
@@ -124,17 +122,17 @@
                                                     <span class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
                                                 @endif
 
-                                                <?php
-                                                $channel_locale = [];
+                                                @php
+                                                    $channel_locale = [];
 
-                                                if ($attribute->value_per_channel) {
-                                                    array_push($channel_locale, $channel);
-                                                }
+                                                    if ($attribute->value_per_channel) {
+                                                        array_push($channel_locale, $channel);
+                                                    }
 
-                                                if ($attribute->value_per_locale) {
-                                                    array_push($channel_locale, $locale);
-                                                }
-                                                ?>
+                                                    if ($attribute->value_per_locale) {
+                                                        array_push($channel_locale, $locale);
+                                                    }
+                                                @endphp
 
                                                 @if (count($channel_locale))
                                                     <span class="locale">[{{ implode(' - ', $channel_locale) }}]</span>
@@ -179,9 +177,11 @@
                    ['product' => $product])
                 !!}
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
-
+                    @if(core()->getConfigData('catalog.products.general.channel-default')
+                        && $view == "admin::catalog.products.accordians.channels")
+                        @continue;
+                    @endif
                     @include ($view)
-
                 @endforeach
 
                 {!! view_render_event(

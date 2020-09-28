@@ -1,6 +1,6 @@
-<?php
+@php
     $productFlat = app('Webkul\Product\Repositories\ProductFlatRepository')->where('product_id', $product->id)->first();
-?>
+@endphp
 <input
     type="text"
     v-validate="'{{$validations}}'"
