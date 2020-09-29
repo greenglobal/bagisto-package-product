@@ -3,6 +3,7 @@
 - Admin able custom products listing or show parent products only
 - Admin able custom config product types suiable with your project
 - Auto fill name, url key for variants
+- Admin able set value channel as default and hidden it 
 
 ## Using bagisto products
 
