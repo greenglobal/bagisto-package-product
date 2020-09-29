@@ -10,7 +10,7 @@ Using bagisto products
 - Now, to register the service provider, go to the `app.php` file inside the config folder & add your service provider inside the `providers` array.
 - `GGPHP\Product\Providers\ProductServiceProvider::class`
 ### Step-4
-- Ưe need to add our package to the `composer.json` file of project root for auto loading in `psr-4`.
+- e need to add our package to the `composer.json` file of project root for auto loading in `psr-4`.
 - ` "GGPHP\\Product\\": "packages/GGPHP/Product/src"`
 ### Step-5
 - Run `composer dump-autoload`
