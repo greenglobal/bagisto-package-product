@@ -52,7 +52,7 @@ class ProductServiceProvider extends ServiceProvider
 
     protected function composeView()
     {
-        view()->composer(['admin::catalog.products.create'], function ($view) {
+        view()->composer(['ggphp-product::admin.catalog.products.create'], function ($view) {
             $productTypes = [];
             $defaultConfig = config('product_types');
             $customConfig = explode(',', core()->getConfigData('catalog.products.general.list-product-type'));

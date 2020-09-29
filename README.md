@@ -3,7 +3,8 @@
 - Admin able custom products listing or show parent products only
 - Admin able custom config product types suiable with your project
 - Auto fill name, url key for variants
-- Admin able set value channel as default and hidden it 
+- Admin able set value channel as default and hidden it
+- Admin able set value attribute family as default when create new product
 
 ## Using bagisto products
 
@@ -21,3 +22,4 @@
 - ` "GGPHP\\Product\\": "packages/GGPHP/Product/src"`
 ### Step-5
 - Run `composer dump-autoload`
+- Go to `https://<your-site>/admin/configuration/catalog/products`

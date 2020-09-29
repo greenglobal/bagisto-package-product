@@ -27,6 +27,7 @@
                     'title' => 'Downloadable'
                 ],
                 'channel-default'          => 'Always choose the channel as default',
+                'attribute-family'         => 'Always choose the family attribute as default',
             ]
         ]
     ];

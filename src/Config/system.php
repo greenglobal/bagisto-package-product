@@ -49,6 +49,11 @@
                     'name'    => 'channel-default',
                     'title'   => 'ggphp::product.admin.system.channel-default',
                     'type'    => 'boolean',
+                ],
+                [
+                    'name'    => 'attribute-family',
+                    'title'   => 'ggphp::product.admin.system.attribute-family',
+                    'type'    => 'boolean',
                 ]
             ],
         ]
