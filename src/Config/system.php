@@ -44,6 +44,11 @@
                             'value' => 'grouped'
                         ]
                     ]
+                ],
+                [
+                    'name'    => 'channel-default',
+                    'title'   => 'ggphp::product.admin.system.channel-default',
+                    'type'    => 'boolean',
                 ]
             ],
         ]

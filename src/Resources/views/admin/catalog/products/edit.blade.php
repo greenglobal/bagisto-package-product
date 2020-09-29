@@ -177,9 +177,11 @@
                    ['product' => $product])
                 !!}
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
-
+                    @if(core()->getConfigData('catalog.products.general.channel-default')
+                        && $view == 'admin::catalog.products.accordians.channels')
+                        @continue;
+                    @endif
                     @include ($view)
-
                 @endforeach
 
                 {!! view_render_event(

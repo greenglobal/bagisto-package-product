@@ -25,7 +25,8 @@
                 ],
                 'downloadable'             => [
                     'title' => 'Downloadable'
-                ]
+                ],
+                'channel-default'          => 'Always choose the channel as default',
             ]
         ]
     ];

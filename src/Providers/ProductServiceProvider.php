@@ -37,6 +37,10 @@ class ProductServiceProvider extends ServiceProvider
             \Webkul\Product\Type\Configurable::class,
             \GGPHP\Product\Type\Configurable::class
         );
+        $this->app->bind(
+            \Webkul\Product\Http\Controllers\ProductController::class,
+            \GGPHP\Product\Http\Controllers\ProductController::class
+        );
     }
 
     protected function registerConfig()
