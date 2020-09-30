@@ -45,9 +45,8 @@
                 @php
                     $familyId = request()->input('family');
                     // Get id of attribute family default
-                    $familyDefault = app('Webkul\Attribute\Repositories\AttributeFamilyRepository')->where('code', 'default')->first();
-                    $isFamilyDefault = core()->getConfigData('catalog.products.general.attribute-family');
-                    $familyDefaultId = ($isFamilyDefault && is_null($familyId)) ? $familyDefault->id : $familyId;
+                    $familyDefault = core()->getConfigData('catalog.products.general.attribute-family');
+                    $familyDefaultId = ($familyDefault && is_null($familyId)) ? $familyDefault : $familyId;
                 @endphp
 
                 {!! view_render_event('bagisto.admin.catalog.product.create_form_accordian.general.before') !!}
@@ -78,6 +77,7 @@
                             <select class="control" v-validate="'required'" id="attribute_family_id" name="attribute_family_id" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.familiy') }}&quot;">
                                 <option value=""></option>
                                 @foreach ($families as $family)
+                                {{-- changed $familyId => $familyDefaultId --}}
                                     <option value="{{ $family->id }}" {{ ($familyDefaultId == $family->id || old('attribute_family_id') == $family->id) ? 'selected' : '' }}>{{ $family->name }}</option>
                                 @endforeach
                             </select>

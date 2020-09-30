@@ -53,8 +53,9 @@
                 [
                     'name'    => 'attribute-family',
                     'title'   => 'ggphp::product.admin.system.attribute-family',
-                    'type'    => 'boolean',
-                ]
+                    'type'    => 'select',
+                    'options' => app('GGPHP\Product\Helpers\Product')->getAllAttributeFamily(),
+                ],
             ],
         ]
     ];
