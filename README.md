@@ -21,3 +21,4 @@
 - ` "GGPHP\\Product\\": "packages/GGPHP/Product/src"`
 ### Step-5
 - Run `composer dump-autoload`
+- Go to https://<your-site>/admin/configuration/catalog/products
